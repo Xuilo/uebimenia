@@ -11,7 +11,7 @@ import org.itri.html5webview.HTML5WebView;
 
 public class MyActivity extends Activity {
     private AdController myController;
-    private final String banner_id = "891926933";
+    private final String banner_id = "891926933";//CHANGE IN RELEASE
 
     HTML5WebView mWebView;
 
@@ -23,7 +23,7 @@ public class MyActivity extends Activity {
         if (savedInstanceState != null) {
             mWebView.restoreState(savedInstanceState);
         } else {
-            mWebView.loadUrl("file:///android_asset/index.html");
+            mWebView.loadUrl("file:///android_asset/LimeJS/FlyMove/FlyMove.html");//CHANGE IN RELEASE
         }
 
         setContentView(mWebView.getLayout());
@@ -36,6 +36,18 @@ public class MyActivity extends Activity {
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         mWebView.saveState(outState);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mWebView.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mWebView.onResume();
     }
 
     @Override
